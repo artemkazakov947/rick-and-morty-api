@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Character(models.Model):
-
     class StatusChoices(models.TextChoices):
         ALIVE = "Alive"
         DEAD = "Dead"

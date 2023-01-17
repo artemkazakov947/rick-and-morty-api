@@ -13,14 +13,16 @@ def scrape_character() -> list[Character]:
         character_resp = requests.get(next_character_to_scrape).json()
 
         for character in character_resp["results"]:
-            characters.append(Character(
-                name=character["name"],
-                api_id=character["id"],
-                status=character["status"],
-                species=character["species"],
-                gender=character["gender"],
-                image=character["image"]
-            ))
+            characters.append(
+                Character(
+                    name=character["name"],
+                    api_id=character["id"],
+                    status=character["status"],
+                    species=character["species"],
+                    gender=character["gender"],
+                    image=character["image"],
+                )
+            )
         next_character_to_scrape = character_resp["info"]["next"]
     return characters
 
